@@ -15,32 +15,32 @@ DEV=dev
 
 case "$ARG" in
     msc)
-        (tar -czvp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
+        (tar -cp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
         ;;
     img)
-        (tar -czvp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
+        (tar -cp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
         ;;
     doc)
-        (tar -czvp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        (tar -cp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
         ;;
     opt)
-        (tar -czvp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
+        (tar -cp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
         ;;
     dev)
-        (tar -czvp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
+        (tar -cp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
         ;;
     vid)
-        (tar -czvp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
+        (tar -cp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
         ;;
     custom)
         ;;
     all)
-        (tar -czvp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
-        (tar -czvp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
-        (tar -czvp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
-        (tar -czvp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
-        (tar -czvp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
-        (tar -czvp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
+        (tar -cp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
+        (tar -cp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
+        (tar -cp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        (tar -cp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
+        (tar -cp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
+        (tar -cp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
         ;;
     help)
         echo "Backup Tool available options: "
