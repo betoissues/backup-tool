@@ -1,0 +1,28 @@
+#!/bin/bash
+ARG=$1
+
+# Where .BAK will be placed and relative paths are based.
+DESTINATION=$HOME
+cd $DESTINATION
+# Locations
+MUSIC=usr/msc
+DOCUMENTS=usr/doc
+IMAGES=usr/img
+VIDEOS=usr/vid
+
+case "$ARG" in
+    msc)
+        (tar -c $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
+        ;;
+    img)
+        (tar -c $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
+        ;;
+    doc)
+        (tar -c $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        ;;
+    vid)
+        (tar -c $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
+        ;;
+    custom)
+        ;;
+esac
