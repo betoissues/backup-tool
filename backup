@@ -4,25 +4,56 @@ ARG=$1
 # Where .BAK will be placed and relative paths are based.
 DESTINATION=$HOME
 cd $DESTINATION
+
 # Locations
 MUSIC=usr/msc
 DOCUMENTS=usr/doc
 IMAGES=usr/img
 VIDEOS=usr/vid
+OPT=opt
+DEV=dev
 
 case "$ARG" in
     msc)
-        (tar -c $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
+        (tar -czvp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
         ;;
     img)
-        (tar -c $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
+        (tar -czvp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
         ;;
     doc)
-        (tar -c $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        (tar -czvp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        ;;
+    opt)
+        (tar -czvp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
+        ;;
+    dev)
+        (tar -czvp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
         ;;
     vid)
-        (tar -c $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
+        (tar -czvp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
         ;;
     custom)
+        ;;
+    all)
+        (tar -czvp $MUSIC | gzip -c > msc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${MUSIC} backed up!"
+        (tar -czvp $IMAGES | gzip -c > img-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${IMAGES} backed up!"
+        (tar -czvp $DOCUMENTS | gzip -c > doc-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DOCUMENTS} backed up!"
+        (tar -czvp $OPT | gzip -c > opt-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${OPT} backed up!"
+        (tar -czvp $DEV | gzip -c > dev-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${DEV} backed up!"
+        (tar -czvp $VIDEOS | gzip -c > vid-$(date '+%Y%m%d_%H:%M').tar.gz.BAK) && echo " ${VIDEOS} backed up!"
+        ;;
+    help)
+        echo "Backup Tool available options: "
+        echo "msc - backups ${DESTINATION}/${MUSIC}"
+        echo "vid - backups ${DESTINATION}/${VIDEOS}"
+        echo "doc - backups ${DESTINATION}/${DOCUMENTS}"
+        echo "img - backups ${DESTINATION}/${IMAGES}"
+        echo "dev - backups ${DESTINATION}/${DEV}"
+        echo "opt - backups ${DESTINATION}/${OPT}"
+        echo "all - backups all of the above."
+        ;;
+    *)
+        echo "Backup Tool"
+        echo "\`backup help\` to show commands."
         ;;
 esac
